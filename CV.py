@@ -75,7 +75,7 @@ projects = [
 
     ("Currency Representation Project",
      "Built a currency formatting and representation tool in Rust. This tool ensures precise handling of floating-point operations to represent currency values accurately with minimal rounding errors. "
-     "It includes support for multiple currencies, custom decimal place configurations, and region-specific formatting. Developed modular code to ensure scalability and ease of integration into existing systems, enabling seamless adoption in financial applications. Tools: Rust, Rustc, GitHub.",
+     "It includes support for multiple currencies, custom decimal place configurations, and region-specific formatting. Developed modular code to ensure scalability and ease of integration into existing systems, enabling seamless adoption in financial applications. Tools: Rust, Cargo, GitHub.",
      "https://github.com/yousef2342K/currency-representation-wtih-rust"),
 
     ("College Management System",
