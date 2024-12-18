@@ -104,7 +104,7 @@ add_contact_info(pdf)
 # Summary Section
 add_section_title(pdf, "Summary")
 summary_text = (
-    "Highly motivated and detail-oriented software engineering student with strong expertise in programming languages like Python, Java, "
+    "Highly motivated and detail-oriented software engineering student with strong expertise in programming languages like C++, Java, "
     "and Rust. Adept at designing efficient algorithms and building scalable systems. Proven experience in delivering "
     "well-structured, maintainable code for real-world projects, including backup automation, pathfinding algorithms, and desktop applications. "
     "Strong team player with hands-on experience in modern tools such as Docker, Kubernetes, and Git. Passionate about problem-solving, "
@@ -136,7 +136,7 @@ pdf.ln(4)
 
 pdf.set_text_color(0, 51, 102)
 pdf.set_font("Helvetica", size=12)
-pdf.multi_cell(0, 8, "ITI Part - PHP Laravel Track (1 Month)\n")
+pdf.multi_cell(0, 8, "ITI - PHP Laravel Track (1 Month)\n")
 pdf.set_font("Helvetica", size=10)
 pdf.set_text_color(0, 0, 0)
 pdf.multi_cell(0, 7, "August 2021 - PHP Laravel Developer Track\n- Completed a 1-month PHP Laravel track focusing on backend development.\n- Gained practical experience in building web apps with PHP, Laravel, and MySQL.")
