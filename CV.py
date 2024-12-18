@@ -7,7 +7,7 @@ class PDF(FPDF):
         if self.page_no() == 1:
             self.set_font("Helvetica", "B", 18)
             self.set_text_color(0, 0, 0)
-            self.cell(0, 10, "Youssif Khalid - CV", border=0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
+            self.cell(0, 10, "Youssif Khalid", border=0, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
             self.ln(4)
 
     def footer(self):
@@ -48,9 +48,9 @@ def add_project_with_icon(pdf, title, description, link, icon_path):
 
 # Contact Information
 def add_contact_info(pdf):
-    pdf.set_font("Helvetica", "I", 10)
+    pdf.set_font("Helvetica", size=10)
     pdf.set_text_color(0, 0, 0)
-    pdf.cell(0, 10, "Smouha, Alexandria 21918 - 01064004599 - a7g2amer@gmail.com", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
+    pdf.cell(0, 10, "Smouha, Alexandria 21918 - 01064004599 - joekhalid2002@gmail.com", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
     
     pdf.set_text_color(0, 51, 102)
     pdf.cell(0, 10, "GitHub: https://github.com/yousef2342K", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C", link="https://github.com/yousef2342K")
@@ -65,7 +65,7 @@ languages = "- Arabic: First Language\n- English: C1 Advanced"
 
 projects = [
     ("Dijkstra Algorithm Implementation", 
-    "Developed Dijkstra's algorithm in Java, optimized with priority queues and fibonnaci heap for efficiency. Integrated Java Swing for a GUI and tested on large datasets for reliability. The project demonstrates efficient pathfinding solutions applicable in transportation. Tools: Java, Java Swing, JGraphT, IntelliJ IDEA, Github.              ",
+    "Developed Dijkstra's algorithm in Java, optimized with priority queues and Fibonacci heap for efficiency. Integrated Java Swing for a GUI and tested on large datasets for reliability. The project demonstrates efficient pathfinding solutions applicable in transportation. Tools: Java, Java Swing, JGraphT, IntelliJ IDEA, Github.",
      "https://github.com/yousef2342K/Dijsktras-Algorithm-Implementation"),
 
     ("Backup Script",
@@ -80,7 +80,7 @@ projects = [
 
     ("College Management System",
      "Designed and developed a comprehensive desktop-based college management system using JavaFX. The system provides functionality for managing student records, courses, and schedules through an intuitive and user-friendly interface. "
-     "Integrated MySQL for data persistence and scalability, ensuring data security and integrity. The application supports advanced search and filtering options for administrators to easily manage information. Tools: JavaFX, MySQL.",
+     "Integrated MySQL for data persistence and scalability, ensuring data security and integrity. The application supports advanced search and filtering options for administrators to easily manage information. Tools: JavaFX, MySQL.\n\n\n",
      "https://github.com/yousef2342K/JavaFxproject"),
 
     ("Tic Tac Toe with Alpha-Beta Pruning",
@@ -98,7 +98,6 @@ pdf = PDF()
 pdf.add_page()
 pdf.set_font("Helvetica", size=12)
 
-
 add_contact_info(pdf)
 
 # Summary Section
@@ -113,6 +112,19 @@ summary_text = (
 pdf.set_font("Helvetica", size=10)
 pdf.multi_cell(0, 8, summary_text)
 pdf.ln(8)
+
+# Education Section
+add_section_title(pdf, "Education")
+
+pdf.set_text_color(0, 51, 102)
+pdf.set_font("Helvetica", "B", 12)
+pdf.cell(0, 8, "Bachelor's Degree in Computer Science", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+pdf.set_font("Helvetica", size=10)
+pdf.set_text_color(0, 0, 0)
+pdf.cell(0, 8, "Faculty of Science, Alexandria University", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+pdf.cell(0, 8, "Expected Graduation: July 2026", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+pdf.ln(2)
+
 
 # Experience Section
 add_section_title(pdf, "Experience")
@@ -133,22 +145,19 @@ pdf.set_text_color(0, 0, 0)
 pdf.multi_cell(0, 7, "June 2022 to October 2022 - Flutter Intern\n- Proficient in Flutter framework and Dart programming language.\n- Strong understanding of mobile app development concepts and best practices.\n- Experience with RESTful APIs, Firebase, and other relevant technologies.")
 pdf.ln(4)
 
-
 pdf.set_text_color(0, 51, 102)
 pdf.set_font("Helvetica", size=12)
 pdf.multi_cell(0, 8, "ITI - PHP Laravel Track (1 Month)\n")
 pdf.set_font("Helvetica", size=10)
 pdf.set_text_color(0, 0, 0)
-pdf.multi_cell(0, 7, "July 2024 to August 2024 - PHP Laravel Track\n- Completed a 1-month PHP Laravel track focusing on backend development.\n- Gained practical experience in building web apps with PHP, Laravel, and MySQL.")
+pdf.multi_cell(0, 7, "July 2024 to August 2024 - PHP Laravel Track\n- Completed a 1-month PHP Laravel track focusing on backend development.\n- Gained practical experience in building web apps with PHP, Laravel Framework, and MySQL.")
 pdf.ln(4)
-
 
 # Projects Section
 add_section_title(pdf, "Projects")
 icon_path = "github.png"
 for i, (title, description, link) in enumerate(projects):
     add_project_with_icon(pdf, title, description, link, icon_path)
-    
 
 # Skills Section
 add_section_title(pdf, "Skills")
