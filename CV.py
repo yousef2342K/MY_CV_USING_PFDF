@@ -16,20 +16,32 @@ class PDF(FPDF):
 
 def add_section_title(pdf, title):
     pdf.set_font("Helvetica", "B", 14)
-    pdf.set_text_color(0, 51, 102) 
+    pdf.set_text_color(0, 51, 102)
     pdf.cell(0, 10, title, ln=True)
-    pdf.set_text_color(0, 0, 0)  
+    pdf.set_text_color(0, 0, 0)
     pdf.ln(2)
 
 
-def add_project(pdf, title, description, link):
+def add_project_with_icon(pdf, title, description, link, icon_path):
     pdf.set_font("Helvetica", "B", 12)
-    pdf.set_text_color(0, 51, 102) 
-    pdf.cell(0, 10, title, ln=True, link=link) 
+    pdf.set_text_color(0, 51, 102)
+    
+    x = pdf.get_x()
+    y = pdf.get_y()
+    icon_width = 5  
+    icon_height = 5 
+    pdf.image(icon_path, x=x, y=y + 1, w=icon_width, h=icon_height, link=link)
+    
+
+    pdf.set_x(x + icon_width + 2)
+    pdf.cell(0, 10, title, ln=True, link=link)
+    
+
     pdf.set_text_color(0, 0, 0)
     pdf.set_font("Helvetica", "", 11)
     pdf.multi_cell(0, 8, description)
     pdf.ln(5)
+
 
 skills = "Python, C++, Java, Dart, Bash, Unix/Linux, GIT/GitHub, Docker/Kubernetes, SQL/MySQL"
 languages = "- Arabic: First Language\n- English: C1 Advanced"
@@ -67,7 +79,7 @@ pdf.set_font("Helvetica", size=12)
 
 # Contact Information
 pdf.set_font("Helvetica", "I", 10)
-pdf.set_text_color(0, 0, 0)  # Ensure black color for contact info
+pdf.set_text_color(0, 0, 0)
 pdf.cell(0, 10, "Smouha, Alexandria 21918 - 01064004599 - a7g2amer@gmail.com", ln=True, align="C")
 pdf.cell(0, 10, "LinkedIn: https://www.linkedin.com/in/youssif-khalid-654b872a5", ln=True, align="C", link="https://www.linkedin.com/in/youssif-khalid-654b872a5")
 pdf.cell(0, 10, "GitHub: https://github.com/yousef2342K", ln=True, align="C", link="https://github.com/yousef2342K")
@@ -83,8 +95,9 @@ pdf.ln(2)
 
 # Projects Section
 add_section_title(pdf, "Projects")
+icon_path = "github.png"  
 for title, description, link in projects:
-    add_project(pdf, title, description, link)
+    add_project_with_icon(pdf, title, description, link, icon_path)
 
 # Skills Section
 add_section_title(pdf, "Skills")
@@ -95,6 +108,6 @@ pdf.multi_cell(0, 8, skills)
 add_section_title(pdf, "Languages")
 pdf.multi_cell(0, 8, languages)
 
-# Save the PDF
+
 output_path_final = "YoussifKhalid_CV.pdf"
 pdf.output(output_path_final)
