@@ -139,7 +139,7 @@ pdf.set_font("Helvetica", size=12)
 pdf.multi_cell(0, 8, "ITI - PHP Laravel Track (1 Month)\n")
 pdf.set_font("Helvetica", size=10)
 pdf.set_text_color(0, 0, 0)
-pdf.multi_cell(0, 7, "August 2021 - PHP Laravel Developer Track\n- Completed a 1-month PHP Laravel track focusing on backend development.\n- Gained practical experience in building web apps with PHP, Laravel, and MySQL.")
+pdf.multi_cell(0, 7, "July 2024 to August 2024 PHP Laravel Developer Track\n- Completed a 1-month PHP Laravel track focusing on backend development.\n- Gained practical experience in building web apps with PHP, Laravel, and MySQL.")
 pdf.ln(4)
 
 
